@@ -1,0 +1,48 @@
+{
+  "name": "vue-ssr",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "slientword <380989353@qq.com>",
+  "private": true,
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "8888"
+    }
+  },
+  "scripts": {
+    "dev": "cross-env host=localhost port=8888 nuxt",
+    "build": "nuxt build",
+    "start": "cross-env host=0.0.0.0 port=8888 nuxt build && nuxt start",
+    "generate": "cross-env host=0.0.0.0 port=8888 nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/auth": "^3.2.0",
+    "@websanova/vue-auth": "^2.21.0-beta",
+    "axios": "^0.17.1",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^5.1.1",
+    "element-ui": "^2.0.7",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "nuxt": "^1.0.0-rc11",
+    "vue-auth": "^1.0.0-alpha.1",
+    "vue-axios": "^2.0.2",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/axios": "^4.5.0",
+    "@nuxtjs/proxy": "^1.1.2",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

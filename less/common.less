@@ -1,0 +1,302 @@
+//公共样式问及看
+@theme-color:#759349;//主题色，虽然已经自定义过element-ui主题，但有些样式主题中不存在，因此需要手动添加
+.el-menu-item [class^=icon-] {
+    margin-right: 5px;
+    width: 24px;
+	text-align: center;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+}
+[class^=icon-] {
+    margin-right: 5px;
+    width: 24px;
+	text-align: center;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+}
+//使子代元素垂直居中
+.vertical-middle{
+    height:100%;
+    &:before{
+        content:'';
+        display:inline-block;
+        visibility: hidden;
+        vertical-align: middle;
+        width:0;
+        height:100%;
+    }
+    >*{
+        display:inline-block;
+        vertical-align: middle;
+    }
+}
+//使子代元素水平居中
+.center{
+    text-align:center;
+    >*{
+        display:inline-block;
+    }
+}
+//过渡动画
+.animate{
+	transition:all 0.3s ease-in-out;
+}
+.el-table{
+	overflow: auto;
+	.el-table__body,.el-table__header{
+		width:100% !important;
+	}
+}
+// 内容区域的标题和背景样式
+.mainTab{
+	padding:0 3rem;
+	 .title{
+		position: relative; 
+		padding:2rem 0;
+		line-height: 3rem;
+        .txt{
+			font-size:1.8rem;
+			margin-right:2rem;
+        }
+        a{
+            text-decoration: none;
+            color:#fff;
+		}
+		.btns{
+			position: absolute;
+			top:2rem;
+			left:0;
+			width:100%;
+			text-align: right;
+		}
+	}
+    .detail{
+		padding:2rem;
+		.txtDet{
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+		.el-form{
+			border-bottom: 1px solid #eee;
+			margin-bottom: 2rem;
+		}
+
+		.el-form-item{
+			margin-bottom: 0;
+			.el-form-item__content{
+				font-size: 1rem;
+			}
+			
+		}
+		.el-button.edit{
+			margin:2rem 0 0 2rem;
+		}
+	}
+    .el-table td{
+		height: 49px !important;
+		overflow-y: hidden;
+	}
+}
+.bg, .white-box {
+	background: #fff;
+	box-shadow: 2px 2px 10px #eee;
+	padding:2rem;
+}
+// form表单的样式
+.hg-form{
+	.txt {
+		font-size: 1.5rem;
+		padding-bottom: 1rem;
+		margin-bottom: 1rem;
+        border-bottom: 1px solid #e0e6ed;
+	}
+	.demo-ruleForm, .el-form {
+		width: 80%;
+		.el-form-item__label {
+			font-weight: bold;
+		}
+		a {
+			text-decoration: none;
+		}
+		.btn {
+			margin-left: 2rem;
+			padding:10px;
+        }
+		.el-form-item{
+			.el-input,
+			.el-select,
+			.el-cascader,
+            .el-input-number{
+				width:20%;
+				min-width: 320px;
+				.el-input{
+					width:100% !important;
+				}
+            }
+            .el-textarea{
+                width:50%!important;
+                min-width:320px;
+            }
+            .el-textarea__inner{
+                height:6rem;
+            }
+            .el-input-number,
+            .el-date-editor{
+				width:10% !important;
+			}
+		}
+		.el-cascader-menu {
+			min-width: 344px;
+		}
+	}
+}
+
+//el-alert
+.el-alert.el-alert--default{
+    background-color:@theme-color;
+}
+/*使用方式 ：在el-alert组件的type设置为default即可
+ * eg:<el-alert
+        title="数量+1，受检人信息+1"
+        type="default">
+    </el-alert>
+*/
+// 详情图标
+.icon-detail {
+    padding: 3px 11px !important;
+    background: #8aaf5c !important;
+    color:#fff !important;
+    &:before {
+        content: "";
+        display: inline-block;
+        width: 13px;
+        height: 15px;
+        margin-right: 7px;
+        background: url(/static/images/detail.png) no-repeat;
+        vertical-align: middle;
+    }
+}
+.icon-detail.is-loading {
+    padding: 5px 12px !important;
+    &:before {
+		display: none;
+    }
+}
+.el-icon-delete2{
+	padding: 4px 13px !important;
+	// border:1px solid #d0021b !important;
+	color:#d0021b !important;
+}
+// 数据表格
+.dataTab{
+	padding:2rem;
+	.tit{
+		position: relative;
+		padding-bottom:2rem;
+		span{
+			cursor: pointer;
+		}
+		.titTxt{
+			font-size: 1.5rem;
+			color:#000;
+		}
+		.el-button{
+			margin:0rem 0rem 0 2rem !important ;
+		}
+	}
+	.el-col {
+		a{
+			color:#fff;
+			text-decoration: none;
+		}
+		.add{
+			margin-top:.8rem;
+		}
+		
+	}
+	.el-col.icon{
+		line-height: 65px;
+		cursor: pointer;
+	}
+	.txtDet {
+		font-size: 1.5rem;
+		line-height: 4rem;
+		color:#000;
+		border-bottom: none !important;
+	}
+	.newOpen{
+		position: absolute;
+		right: 0;
+		top:0;
+		line-height: 45px;
+		a{
+			color: #8aaf5c;
+			font-weight: bold;
+			text-decoration:none;
+		}
+	}
+	.el-table th,
+	.el-table__header-wrapper thead div{
+		background-color:#f2f6de;
+		line-height: 3.5rem;
+	}
+}
+// border-bottom
+.border-bottom{
+    border-bottom:1px solid #eee;
+}
+
+.form-ctrl{
+    padding:2rem 0;
+}
+
+section.container{
+	overflow-y: auto;
+}
+
+a{
+    color:#8aaf5c;
+	text-decoration: none;
+	cursor: pointer;
+}
+.detail {
+	.el-form-item .el-form-item__label {
+		padding: 0 .5rem 0 0;
+		line-height: 2.2rem;
+	}
+	.el-form .el-form-item__content{
+		line-height: 2.2rem;
+	}
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+//清楚浮动
+.clearfix{
+	zoom:1;
+	&:after{
+		content:'';
+		display:block;
+		visibility: hidden;
+		width:0;
+		height:0;
+		clear:both;
+	}
+}

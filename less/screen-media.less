@@ -1,0 +1,113 @@
+@media screen and (max-width: 1023px){
+	.hg-form{
+		.demo-ruleForm, .el-form {
+			.el-form-item{
+				.el-input,
+				.el-select,
+				.el-cascader,
+				.el-input-number{
+					width:20%;
+					min-width: 220px;
+					.el-input{
+						width:100% !important;
+					}
+				}
+				.el-textarea{
+					width:50%!important;
+					min-width:220px;
+				}
+				.el-textarea__inner{
+					height:6rem;
+				}
+				.el-input-number,
+				.el-date-editor{
+					width:10% !important;
+				}
+			}
+			.el-cascader-menu {
+				min-width: 344px;
+			}
+		}
+		.el-button{
+			margin-top:1rem;
+			max-width: 220px;
+		}
+	}
+}
+@media screen and (max-width: 767px) {
+	.mainTab{
+		padding:0 1rem;
+		.btns{
+			text-align: right;
+			.el-button:last-child{
+				margin-top:1rem;
+			}
+		}
+	}
+	.hg-form {
+		.el-form {
+			width: 100%
+		}
+	}
+	.hg-form{
+		.demo-ruleForm, .el-form{
+			.el-form-item {
+				margin-bottom: .5rem;
+			}
+			.el-form-item__label{
+				float: none;
+				display: block;
+				text-align: left;
+				&:before{
+					display:inline-block;
+				}
+			}
+			.el-form-item__content{
+				margin-left: 0 !important;
+				input,.el-cascader{
+					width:100%;
+				}
+				.product-category-selector.el-button,
+				.add{
+					width:100%;
+				}
+			}
+			.btn{
+				margin:1rem 0 0 0;
+			} 
+		}
+		.product-category-selector{
+			.el-button{
+				width:100%;
+			}
+		}
+		
+	}
+}
+//屏幕适配
+@media screen and (max-width:414px){
+	html{
+		font-size:10px;
+	}
+	.hg-login{
+		h1{
+			margin-bottom:2rem!important;
+		}
+		.container{
+			width:90%!important;
+			min-width:auto!important;
+		}
+		.el-radio-group label.el-radio:last-child{
+			margin-left:0px;
+			margin-top:1rem;
+		}
+	}
+	.hg-form{
+		.demo-ruleForm, .el-form{
+			
+			.el-form-item__content{
+				line-height: 0 !important;
+			}
+		}
+	}
+}
