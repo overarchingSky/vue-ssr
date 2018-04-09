@@ -1,75 +1,72 @@
-var path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-function resolve (dir) {
-  return path.join(__dirname, dir)
+var path = require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+function resolve(dir) {
+  return path.join(__dirname, dir);
 }
 module.exports = {
   /*
   ** Headers of the page
   */
   head: {
-    title: 'vue-ssr',
+    title: "vue-ssr",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "Nuxt.js project" }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   env: {
-    HOST: process.env.host || 'localhost',
-    PORT: process.env.port || '3000',
-    API_URL_BROWSER: '/api'
+    HOST: process.env.host || "localhost",
+    PORT: process.env.port || "3000",
+    API_URL_BROWSER: "/api"
   },
-  modules: [
-    '@nuxtjs/auth',
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy'
-  ],
+  modules: ["@nuxtjs/auth", "@nuxtjs/axios", "@nuxtjs/proxy"],
   auth: {
     user: {
-      endpoint: '',
-      propertyName: '',
+      endpoint: "",
+      propertyName: ""
     },
     login: {
-      endpoint: ''
+      endpoint: ""
     },
     logout: {
-      endpoint: '',
-      method: 'get'
+      endpoint: "",
+      method: "get"
     },
     redirect: {
-      notLoggedIn: '/login',
-      loggedIn: '/'
-    },
+      notLoggedIn: "/login",
+      loggedIn: "/"
+    }
   },
-  router:{
+  router: {
     //middleware: ['auth', 'no-auth']
   },
   proxy: [
     [
-      '/api',
+      "/api",
       {
-        target: 'http://api.douban.com/v2', // api主机
-        pathRewrite: {'^/api': '/'}
+        target: "http://api.douban.com/v2", // api主机
+        pathRewrite: { "^/api": "/" }
       }
     ]
   ],
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: "rgb(69, 193, 164)" }, //{ color: "#3B8070" },
   /*
   ** Build configuration
   */
   plugins: [
-    '~/plugins/auth'
+    "~/plugins/auth",
+    { src: "~/plugins/swiper", ssr: false },
+    { src: "~plugins/vue-material", ssr: true }
   ],
-  css:[
-    'element-ui/lib/theme-chalk/index.css',
-    '~/less'
+  css: [
+    "~/less",
+    "vue-material/dist/vue-material.min.css",
+    "swiper/dist/css/swiper.css"
   ],
   // css:[
   //   {src: 'less/common.less', lang: 'less'},
@@ -78,16 +75,24 @@ module.exports = {
     gzip: false
   },
   build: {
-    filenames:{
-      css:'element-ui.[contenthash].css',
-      vendor:'vendor.[chunkhash].js'  
+    filenames: {
+      css: "[name].[contenthash].css",
+      vendor: "vendor.[chunkhash].js"
     },
-    vendor: ['element-ui', 'axios', 'vue-axios','babel-polyfill'],
-    extend (webpackConfig, env) {
-      webpackConfig.resolve.alias['cps'] = resolve('components')
-      webpackConfig.resolve.alias['lib'] = resolve('lib')
+    vendor: [
+      "vue-material",
+      "axios",
+      "vue-axios",
+      "babel-polyfill",
+      "swiper/dist/css/swiper.css"
+    ],
+    extend(webpackConfig, env) {
+      webpackConfig.resolve.alias["cps"] = resolve("components");
+      webpackConfig.resolve.alias["lib"] = resolve("lib");
     },
-    extractCSS:true,
+    extractCSS: {
+      allChunks: true
+    }
     /*
     ** Run ESLint on save
     */
@@ -102,7 +107,7 @@ module.exports = {
     //   }
     // }
   }
-}
+};
 
 // pages/vetur.e1e15341e9febc82fe4e.js  674 bytes       3  [emitted]         pages/vetur
 // nodejs_v1 |         fonts/element-icons.2fad952.woff    6.16 kB          [emitted]

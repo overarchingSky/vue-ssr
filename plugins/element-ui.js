@@ -1,5 +1,5 @@
-import elementUI from 'element-ui'
+import elementUI from "muse-ui";
 //require.ensure([],_ => require('element-ui/lib/theme-chalk/index.css'),'element-ui.css')
 //import 'element-ui/lib/theme-chalk/index.css'
-import Vue from 'vue'
-Vue.use(elementUI)
+import Vue from "vue";
+Vue.use(elementUI);

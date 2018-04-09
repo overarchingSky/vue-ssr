@@ -1,4 +1,4 @@
-# vue-ssr
+# wingedcare-home
 
 > Nuxt.js project
 
