@@ -3,7 +3,11 @@
  * doc: https://vuematerial.io/components/avatar
  */
 import vueMaterial from "vue-material";
-//require.ensure([],_ => require('element-ui/lib/theme-chalk/index.css'),'element-ui.css')
-//import 'element-ui/lib/theme-chalk/index.css'
 import Vue from "vue";
 Vue.use(vueMaterial);
+
+// import { MdButton, MdLayout, MdMenu } from "vue-material/dist/components";
+// import Vue from "vue";
+// Vue.use(MdButton);
+// Vue.use(MdLayout);
+// Vue.use(MdMenu);

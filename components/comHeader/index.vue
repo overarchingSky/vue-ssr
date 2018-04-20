@@ -1,21 +1,25 @@
 <template>
 	<div class="header" :style="{'width':bgWidth}">
 		<div class="content" :style="{'max-width':contentWidth,'width':'100%'}">
-			<img src="/images/logo.jpg" class="logo" />	
+			<div class="logo-warp">
+				<img src="/images/logo.png" class="logo" />	
+			</div>
 			<ul class="nav">
-				<nuxt-link v-for="(item,index) in nav" :to="item.url" :key="index">
+				<a :href="item.url" v-for="(item,index) in nav" :key="index">
 					<md-button class="nav-item">{{item.title}}</md-button>
-				</nuxt-link>
+				</a>
 			</ul>
 			<md-menu class="min-nav">
 				<md-button md-menu-trigger class="md-icon-button">
 					<img src="/images/more.png" />
 				</md-button>
 				<md-menu-content>
-					<md-menu-item @click="() => {}" v-for="(item,index) in nav" :key="index" :to="item.url">
-						<md-button class="warp" >
-							{{item.title}}
-						</md-button>
+					<md-menu-item @click="() => {}" v-for="(item,index) in nav" :key="index">
+						<a :href="item.url">
+							<md-button class="warp">
+								{{item.title}}
+							</md-button>
+						</a>
 					</md-menu-item>
 				</md-menu-content>
     		</md-menu>			
@@ -52,7 +56,7 @@ export default {
 				},
 				{
 					title: "动态",
-					url: "/#new"
+					url: "/#news"
 				},
 				{
 					title: "合作",
@@ -75,18 +79,22 @@ export default {
 <style lang="less">
 .md-menu-content {
 	max-height: none !important;
-	z-index: 9;
+	z-index: 9 !important;
 	background-color: #fff;
 	.warp {
 		margin: 6px 0;
 	}
 }
 .md-menu {
-	display: flex;
 	align-items: center;
 }
+.md-ripple {
+	a {
+		width: 100%;
+	}
+}
 .md-list-item-content {
-	padding: 4px 0;
+	padding: 4px 0 !important;
 	.md-button {
 		width: 100%;
 	}
@@ -98,16 +106,22 @@ export default {
 	z-index: 9;
 	width: 100%;
 	background: #1f5b99;
-	height: 5rem;
+	height: 1.8rem;
+	padding: 0 0.36rem;
 	.content {
 		height: 100%;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		margin: 0 auto;
-		.logo {
-			width: 16rem;
+		.logo-warp {
+			padding: 0.36rem 0;
+			.logo {
+				width: 3.6rem;
+				height: 100%;
+			}
 		}
+
 		.nav {
 			font-size: 0;
 			.nuxt-link-active {
@@ -116,7 +130,7 @@ export default {
 				}
 			}
 			a {
-				font-size: 1rem;
+				font-size: 0.36rem;
 				display: 1;
 				height: 100%;
 				display: inline-block;
@@ -133,15 +147,15 @@ export default {
 .nav {
 	display: inline-block;
 }
-.min-nav {
+.header .md-menu {
 	display: none;
 }
 @media screen and (max-width: 800px) {
 	.min-nav {
-		display: flex;
+		display: flex !important;
 	}
 	.nav {
-		display: none;
+		display: none !important;
 	}
 }
 </style>

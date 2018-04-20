@@ -1,13 +1,17 @@
 <template>
   <div class="view">
 	<com-header class="header"></com-header>
-    <nuxt class="section"/>
+	<div class="section">
+		<nuxt/>
+	</div>
+    
   </div>
 </template>
 
 <script>
 import "less";
 import comHeader from "~/components/comHeader";
+import "../plugins/mobile.js";
 export default {
 	components: {
 		comHeader
@@ -16,13 +20,18 @@ export default {
 </script>
 
 <style lang="less">
+html,
+body,
+#__nuxt,
+#__layout {
+	height: 100%;
+}
 .view {
-	padding-top: 5rem;
+	padding-top: 1.79rem;
+	height: 100%;
 	.section {
-		flex: 1;
-		max-width: 1366px;
-		background-color: #ccc;
-		margin: 0 auto;
+		height: 100%;
+		overflow: auto;
 	}
 }
 html {

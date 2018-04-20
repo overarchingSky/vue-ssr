@@ -8,13 +8,19 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: "vue-ssr",
+    title: "芸朵星辰",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "Nuxt.js project" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        src: "js/flexible.js",
+        type: "text/javascript"
+      }
+    ]
   },
   env: {
     HOST: process.env.host || "localhost",
@@ -59,18 +65,13 @@ module.exports = {
   ** Build configuration
   */
   plugins: [
-    "~/plugins/auth",
+    //plugins里的js会自动打到vender里
+    // { src: "~/plugins/babel-polyfill", ssr: true },//按需引入vue-material时打开
+    // "~/plugins/auth",
     { src: "~/plugins/swiper", ssr: false },
     { src: "~plugins/vue-material", ssr: true }
   ],
-  css: [
-    "~/less",
-    "vue-material/dist/vue-material.min.css",
-    "swiper/dist/css/swiper.css"
-  ],
-  // css:[
-  //   {src: 'less/common.less', lang: 'less'},
-  // ],
+  css: ["~/less", "vue-material/dist/vue-material.min.css"],
   performance: {
     gzip: false
   },
@@ -80,11 +81,8 @@ module.exports = {
       vendor: "vendor.[chunkhash].js"
     },
     vendor: [
-      "vue-material",
-      "axios",
-      "vue-axios",
-      "babel-polyfill",
-      "swiper/dist/css/swiper.css"
+      "swiper/dist/css/swiper.css",
+      "vue-material/dist/vue-material.min.css"
     ],
     extend(webpackConfig, env) {
       webpackConfig.resolve.alias["cps"] = resolve("components");
@@ -109,14 +107,20 @@ module.exports = {
   }
 };
 
-// pages/vetur.e1e15341e9febc82fe4e.js  674 bytes       3  [emitted]         pages/vetur
-// nodejs_v1 |         fonts/element-icons.2fad952.woff    6.16 kB          [emitted]
-// nodejs_v1 | layouts/app-main.90dae23732d09749cdd4.js    10.4 kB       0  [emitted]         layouts/app-main
-// nodejs_v1 |      pages/index.0a20be29a31f3bbd3305.js    4.91 kB       1  [emitted]         pages/index
-// nodejs_v1 |      pages/page2.74be85b136136a12165a.js    4.47 kB       2  [emitted]         pages/page2
-// nodejs_v1 |          fonts/element-icons.6f0a763.ttf      11 kB          [emitted]
-// nodejs_v1 |  layouts/default.741b6570a55f53cb29d6.js     1.4 kB       4  [emitted]         layouts/default
-// nodejs_v1 |           common.ec1153d8c80cb01ef181.js     808 kB       5  [emitted]  [big]  common
-// nodejs_v1 |              app.8d833e1bbebad5c3799b.js     223 kB       6  [emitted]         app
-// nodejs_v1 |         manifest.4730315047f63e1e831b.js    1.72 kB       7  [emitted]         manifest
-// nodejs_v1 |                                 LICENSES  755 bytes          [emitted]
+// pages_index.a819f08ed94c53f76237.js  11.8 kB       0  [emitted]         pages_index
+// layouts_default.44166a714cb5b7d7f98f.js   146 kB       1  [emitted]         layouts_default
+// 		 vendor.77218f86cb5bfb4419cc.js   652 kB       2  [emitted]  [big]  vendor
+// 			app.c0261778bd646c52b53c.js  35.6 kB       3  [emitted]         app
+// 	   manifest.9c6700df827ec58eb009.js  1.47 kB       4  [emitted]         manifest
+// app.cab3f2f006c93939855ee12ef5b880ee.css  15.1 kB       3  [emitted]         app
+// vendor.04142887070306a8e42590949ef03903.css   112 kB       2  [emitted]         vendor
+// 							   LICENSES   1.4 kB          [emitted]
+
+// pages_index.a819f08ed94c53f76237.js  11.8 kB       0  [emitted]         pages_index
+// layouts_default.44166a714cb5b7d7f98f.js   146 kB       1  [emitted]         layouts_default
+// 		 vendor.0d54a5922081bf2635f4.js   684 kB       2  [emitted]  [big]  vendor
+// 			app.113d43ffcbe42ca37971.js  35.5 kB       3  [emitted]         app
+// 	   manifest.b1816f19a45703ce2cc0.js  1.47 kB       4  [emitted]         manifest
+// app.cab3f2f006c93939855ee12ef5b880ee.css  15.1 kB       3  [emitted]         app
+// vendor.04142887070306a8e42590949ef03903.css   112 kB       2  [emitted]         vendor
+// 							   LICENSES  2.78 kB          [emitted]
